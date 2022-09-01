@@ -1,0 +1,33 @@
+.game-board {
+    height: calc(100% - 75px);
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    .board-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tile {
+        box-sizing: border-box;
+    }
+
+    .overlay-item {
+        position: absolute;
+    }
+
+    .winner-announcement {
+        text-align: center;
+        top: 0;
+        width: 100%;
+        background-color: #2d3436;
+        color: white;
+        font-size: 2rem;
+        z-index: 120;
+    }
+}

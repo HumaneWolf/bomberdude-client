@@ -1,0 +1,21 @@
+<form class="centered-form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" [(ngModel)]="name" [disabled]="processing" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Join code</mat-label>
+        <input matInput name="code" [(ngModel)]="code" [disabled]="processing" />
+    </mat-form-field>
+
+    <ng-container *ngIf="!processing && isConnected">
+        <button mat-raised-button type="submit" color="primary">Join game</button>
+        <button mat-stroked-button type="button" (click)="createGame()">Create game</button>
+    </ng-container>
+
+    <p *ngIf="message" class="server-message">{{ message }}</p>
+    <p *ngIf="!isConnected && !isConnecting" class="server-message">Failed to connect to backend server.</p>
+
+    <mat-progress-bar *ngIf="processing || isConnecting" mode="indeterminate"></mat-progress-bar>
+</form>

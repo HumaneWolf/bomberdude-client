@@ -1,0 +1,39 @@
+.centered-lobby {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+
+    .player-table {
+        width: 100%;
+
+        .color-column {
+            width: 40px;
+        }
+
+        .color-marker {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .hidden-header {
+            visibility: hidden;
+        }
+    }
+
+    .start-button-row {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+.lobby-toolbar {
+    .toolbar-spacer {
+        flex: 1 1 auto;
+    }
+
+    .join-code-text {
+        font-size: 0.8rem;
+        padding-top: 0.4rem;
+        margin-right: 5px;
+    }
+}

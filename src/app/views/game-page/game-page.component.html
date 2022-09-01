@@ -1,0 +1,21 @@
+<mat-toolbar color="secondary" class="lobby-toolbar">
+    <h1>BomberDude</h1>
+</mat-toolbar>
+
+<div #gameBoard class="game-board" [style.width]="boardWidthPx" [style.height]="boardHeightPx">
+    <div *ngIf="winner" class="winner-announcement overlay-item">{{ winner.name }} has won!</div>
+
+    <app-player class="overlay-item" *ngIf="myPlayer?.isAlive" [tileSize]="tileSize" [player]="myPlayer"
+        (positionChange)="playerMoveTo($event.x, $event.y)" [map]="_map" [mapWidth]="mapWidth" [mapHeight]="mapHeight"
+        [style.top]="yPosition(myPlayer?.positionY ?? 0)" [style.left]="xPosition(myPlayer?.positionX ?? 0)"></app-player>
+    
+    <app-other-player *ngFor="let player of livingPlayers | async" class="overlay-item" [tileSize]="tileSize" [player]="player"
+        [style.top]="yPosition(player.positionY)" [style.left]="xPosition(player.positionX)"></app-other-player>
+    
+    <app-bomb *ngFor="let bomb of bombs | async" class="overlay-item" [tileSize]="tileSize"
+        [style.top]="yPosition(bomb.y)" [style.left]="xPosition(bomb.x)"></app-bomb>
+
+    <div *ngFor="let y of range(mapHeight)" class="board-row">
+        <app-map-tile *ngFor="let x of range(mapWidth)" [tileSize]="tileSize" [x]="x" [y]="y" [mapUpdates]="map"></app-map-tile>
+    </div>
+</div>

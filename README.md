@@ -1,6 +1,6 @@
 # BomberdudeClient
 
-This is a basic 
+This is the front end of a basic browser-based multiplayer Bomberman clone. It's a bit janky, and mostly made to try out [Orleans](https://docs.microsoft.com/en-us/dotnet/orleans/overview). You can find the back end [here](https://github.com/HumaneWolf/bomberdude-server).
 
 
 
